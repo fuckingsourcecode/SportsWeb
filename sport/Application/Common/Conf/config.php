@@ -8,6 +8,7 @@ return array(
     'DB_PWD'   =>'500239',
     'DB_PORT'  =>'3306',
     'DB_PREFIX'=>'sport_',
-    'SHOW_PAGE_TRACE' =>true, //开启trace
-
+    //'SHOW_PAGE_TRACE' =>true,             //开启trace
+    'TMPL_L_DELIM'     => '<{',   //模板引擎普通标签开始标记
+    'TMPL_R_DELIM'     => '}>',      //模板引擎普通标签结束标记
 );
