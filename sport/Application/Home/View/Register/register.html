@@ -12,7 +12,7 @@
 		  padding-top: 40px;
 		  padding-bottom: 40px;
 		  background-color: #eee;
-		}
+		}	
 		.form-signin {
 		  max-width: 330px;
 		  padding: 15px;
@@ -36,6 +36,16 @@
 		}
 		.form-signin .form-control:focus {
 		  z-index: 2;
+		}
+		.form-signin input[type="email"] {
+		  margin-bottom: -1px;
+		  border-bottom-right-radius: 0;
+		  border-bottom-left-radius: 0;
+		}
+		.form-signin input[type="password"] {
+		  margin-bottom: 10px;
+		  border-top-left-radius: 0;
+		  border-top-right-radius: 0;
 		}
 		input::-webkit-outer-spin-button,
 		input::-webkit-inner-spin-button{
@@ -89,7 +99,7 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form action="__APP__/Home/Register/do_register" onsubmit="return valid()" class="form-signin" method="post">
+		<form action="__APP__/Home/Register/do_register" class="form-signin" method="post">
 			<h2 class="form-signin-heading text-center">
 				注册
 			</h2>
@@ -102,17 +112,13 @@
 			<label for="inputConfirm">确认密码：</label>
 			<input type="password" id="inputConfirm" name="inputConfirm" class="form-control" placeholder="confirm password" required="true" />
 			<label for="inputCollege">学院：</label>
-			<select id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true">
-                <option value="计算机">计算机</option>
-                <option value="通信">通信</option>
-                <option value="经管">经管</option>
-            </select>
+			<input type="text" id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true" />
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadio" required id="optionsRadio1" value="male"> 男
+					<input type="radio" name="optionsRadio" id="optionsRadio1" value="male"> 男
 				</label>
 				<label>
-					<input type="radio" name="optionsRadio" required id="optionsRadio2" value="female"> 女
+					<input type="radio" name="optionsRadio" id="optionsRadio2" value="female"> 女
 				</label>
 			</div>
 			<!-- <div class="checkbox">
@@ -120,82 +126,9 @@
 					<input type="checkbox" value="remember-me"> Remember me
 				</label>
 			</div> -->
-            <input type="submit" value="注册" class="btn btn-lg btn-primary btn-block"/>
+
+			<button class="btn btn-lg btn-primary btn-block">注册</button>
 		</form>
 	</div>
-    <div class="container">
-        <button type="button" style="display: none" class="btn btn-primary btn-lg" id="myModBtn" data-toggle="modal" data-target="#myModal">
-            Launch demo modal
-        </button>
-        <!-- Modal -->
-        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title text-center" id="myModalLabel"></h4>
-                    </div>
-                    <div class="modal-body">
-                        <p id="modal-body-content"></p>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" id="close" class="btn btn-default"  data-dismiss="modal" value="Close">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
-<script type="text/javascript">
-	function valid () {
-        if(!($('#inputPassword').val() == $('#inputConfirm').val())) {
-            $('#myModalLabel').text('密码错误');
-            $('#modal-body-content').text('两次密码不一致');
-            $('#myModBtn').click();
-            return false;
-        }
-        if($('#inputPassword').val() < 6) {
-            $('#myModalLabel').text('密码长度不够');
-            $('#modal-body-content').text('密码长度不够');
-            $('#myModBtn').click();
-            return false;
-        }
-    }
-    $(document).ready(function () {
-//        (function () {
-//            $.ajax({
-//                url: '',
-//                type: 'get',
-//                success: function (data) {
-//                    var data = data.toArray();
-//                    if(data) {
-//                        for(var i=0; i<data.length; i++) {
-//                            $('#inputcollege').append('<option>'+ data[i] +'</option>');
-//                        }
-//                    }
-//                }
-//            });
-//        })();
-       $('#inputStuNum').blur(function () {
-           if($('#inputStuNum').val().length != 10) {
-               $('#myModalLabel').text('学号错误');
-               $('#modal-body-content').text('学号错误');
-               $('#myModBtn').click();
-           }else {
-               $.ajax({
-                   url: '',
-                   type: 'get',
-                   data: {'StuNum': $('#inputStuNum').val()},
-                   success: function (data) {
-                       if(false) {
-                           $('#myModalLabel').text('学号已注册');
-                           $('#modal-body-content').text('学号已注册');
-                           $('#myModBtn').click();
-                       }
-                   }
-               });
-           }
-       });
-    });
-</script>

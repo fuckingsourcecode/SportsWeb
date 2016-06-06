@@ -4,9 +4,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" conatent="width=device-width, initial-scale=1" />
 	<title>登陆</title>
-	<link rel="stylesheet" href="/sports/SuportsWeb/sport/Public/css/bootstrap.min.css" />
-	<script src="/sports/SuportsWeb/sport/Public/js/jquery-1.11.3.min.js"></script>
-	<script src="/sports/SuportsWeb/sport/Public/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/sport/Public/css/bootstrap.min.css" />
+	<script src="/sport/Public/js/jquery-1.11.3.min.js"></script>
+	<script src="/sport/Public/js/bootstrap.min.js"></script>
 	<style>
 		body {
 		  padding-top: 40px;
@@ -71,7 +71,7 @@
 				<div class="navbar-collapse collapse" id="navbar">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="/sports/SuportsWeb/sport/index.php/Home">主页</a>
+							<a href="/sport/index.php/Home">主页</a>
 						</li>
 						<li>
 							<a href="#">排行</a>
@@ -88,10 +88,10 @@
 					</div>
 					<ul class="nav navbar-nav navbar-right"">
 						<li href="#" class="active">
-							<a href="/sports/SuportsWeb/sport/index.php/Home/Login/login">登陆</a>
+							<a href="/sport/index.php/Home/Login/login">登陆</a>
 						</li>
 						<li href="#">
-							<a href="/sports/SuportsWeb/sport/index.php/Home/Register/register">注册</a>
+							<a href="/sport/index.php/Home/Register/register">注册</a>
 						</li>
 					</ul>
 				</div>

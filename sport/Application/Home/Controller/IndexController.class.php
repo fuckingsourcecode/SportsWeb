@@ -24,4 +24,8 @@ class IndexController extends Controller {
             $this->ajaxReturn($_SESSION['name']);
         }
     }
+    public function logout()
+    {
+
+    }
 }
