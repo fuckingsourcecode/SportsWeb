@@ -41,4 +41,25 @@ class RegisterController extends  Controller{
             $this->error("注册失败！");
         }
     }
+    public function ajaxAcademy()
+    {
+        $m=new Model();
+        $m->query('set names utf8');
+        $sql="select name from sport_academy ";
+        $arr=$m->query($sql);
+        $this->ajaxReturn($arr,'JSON');
+    }
+    public function ajaxNum()
+    {
+        $id=$_POST['id'];
+        $m=M('user');
+        $count=$m->where($id)->select();
+        if($count>0)
+        {
+            $this->ajaxReturn("该账号已注册！");
+        }
+        else{
+            $this->ajaxReturn("该账号可注册！");
+        }
+    }
 }

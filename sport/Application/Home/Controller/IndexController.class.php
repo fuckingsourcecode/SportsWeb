@@ -15,10 +15,7 @@ class IndexController extends Controller {
     {
      if(!isset($_SESSION['name'])||$_SESSION['name']=='')
      {
-         $date=urlencode("没有登录有个JB的session");
-         $date= json_encode($date);
-        echo  $date=urldecode($date);
-
+         $this->ajaxReturn('please login');
      }
         else{
             $this->ajaxReturn($_SESSION['name']);
@@ -26,6 +23,7 @@ class IndexController extends Controller {
     }
     public function logout()
     {
-
+        session(null);
+        $this->ajaxReturn("OK");
     }
 }
