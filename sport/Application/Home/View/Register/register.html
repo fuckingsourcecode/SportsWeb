@@ -158,28 +158,44 @@
 </body>
 </html>
 <script>
-//    $(document).ready(function () {
-//       $.ajax({
-//           url: '',
-//           type: 'GET',
-//           success: function (data) {
-//               var data = data.toArray();
-//               for (var i=0; i<data.length; i++) {
-//                    $('#inputCollege').append('<option>' + data[i] + '</option>');
-//               }
-//           }
-//       });
-//    });
+    $(document).ready(function () {
+        (function () {
+            $.ajax({
+                url: '',
+                type: 'GET',
+                success: function (data) {
+                    var data = data.toArray();
+                    for (var i=0; i<data.length; i++) {
+                        $('#inputCollege').append('<option>' + data[i] + '</option>');
+                    }
+                }
+            });
+        })();
+        $('#inputStuNum').blur(function () {
+           $.ajax({
+               url: '',
+               type: 'get',
+               data: {'StuNum': $('#inputStuNum').val()},
+               success: function (data) {
+                   if(data) {
+                       $('#myModalLabel').text('学号已注册');
+                       $('.modal-body').text('学号已注册');
+                       $('#myModBtn').click();
+                   }
+               }
+           })
+        });
+    });
     function validate() {
         if ($('#inputStuNum').val().length != 10) {
             $('#myModalLabel').text('学号错误');
-            $('#modal-body').text('学号长度不够');
+            $('.modal-body').text('学号长度不够');
             $('#myModBtn').click();
             return false;
         }
         if ($('#inputPassword').val() != $('#inputConfirm').val()) {
             $('#myModalLabel').text('两次密码不一致');
-            $('#modal-body').text('两次密码不一致');
+            $('.modal-body').text('两次密码不一致');
             $('#myModBtn').click();
             return false;
         }
