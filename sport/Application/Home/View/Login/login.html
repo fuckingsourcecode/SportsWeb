@@ -99,18 +99,18 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form action="" class="form-signin">
+		<form action="do_login" class="form-signin" method="post">
 			<h2 class="form-signin-heading text-center">
 				登录
 			</h2>
 			<label for="inputStuNum">学号：</label>
-			<input type="number" id="inputStuNum" class="form-control" placeholder="student number" required="true" autofocus="true" />
+			<input type="number" id="inputStuNum"  name="inputStuNum" class="form-control" placeholder="student number" required="true" autofocus="true" />
 			<label for="inputPassword">密码：</label>
-			<input type="password" id="inputPassword" class="form-control" placeholder="password" required="true" />
+			<input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="password" required="true" />
 
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" value="remember-me"> Remember me
+					<input type="checkbox" value="remember-me" name="checkbox"> Remember me
 				</label>
 			</div>
 			<button class="btn btn-lg btn-primary btn-block">登陆</button>

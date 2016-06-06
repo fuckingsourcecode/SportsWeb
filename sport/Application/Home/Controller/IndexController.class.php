@@ -11,5 +11,17 @@ class IndexController extends Controller {
         $this->assign('arr',$arr);
         $this->display();
     }
+    public function checkSession()
+    {
+     if(!isset($_SESSION['name'])||$_SESSION['name']=='')
+     {
+         $date=urlencode("没有登录有个JB的session");
+         $date= json_encode($date);
+        echo  $date=urldecode($date);
 
+     }
+        else{
+            $this->ajaxReturn($_SESSION['name']);
+        }
+    }
 }
