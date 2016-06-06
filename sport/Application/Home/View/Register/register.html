@@ -99,7 +99,7 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form action="__APP__/Home/Register/do_register" class="form-signin" method="post">
+		<form action="__APP__/Home/Register/do_register" onsubmit="return validate()" class="form-signin" method="post">
 			<h2 class="form-signin-heading text-center">
 				注册
 			</h2>
@@ -112,13 +112,15 @@
 			<label for="inputConfirm">确认密码：</label>
 			<input type="password" id="inputConfirm" name="inputConfirm" class="form-control" placeholder="confirm password" required="true" />
 			<label for="inputCollege">学院：</label>
-			<input type="text" id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true" />
+			<select type="text" id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true">
+                <option value="计算机">计算机</option>
+            </select>
 			<div class="radio">
 				<label>
-					<input type="radio" name="optionsRadio" id="optionsRadio1" value="male"> 男
+					<input type="radio" name="optionsRadio" id="optionsRadio1" required value="male"> 男
 				</label>
 				<label>
-					<input type="radio" name="optionsRadio" id="optionsRadio2" value="female"> 女
+					<input type="radio" name="optionsRadio" id="optionsRadio2" required value="female"> 女
 				</label>
 			</div>
 			<!-- <div class="checkbox">
@@ -129,6 +131,57 @@
 
 			<button class="btn btn-lg btn-primary btn-block">注册</button>
 		</form>
+        <div class="container">
+            <!-- Button trigger modal -->
+            <button style="display: none;" id="myModBtn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel"></h4>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </body>
 </html>
+<script>
+//    $(document).ready(function () {
+//       $.ajax({
+//           url: '',
+//           type: 'GET',
+//           success: function (data) {
+//               var data = data.toArray();
+//               for (var i=0; i<data.length; i++) {
+//                    $('#inputCollege').append('<option>' + data[i] + '</option>');
+//               }
+//           }
+//       });
+//    });
+    function validate() {
+        if ($('#inputStuNum').val().length != 10) {
+            $('#myModalLabel').text('学号错误');
+            $('#modal-body').text('学号长度不够');
+            $('#myModBtn').click();
+            return false;
+        }
+        if ($('#inputPassword').val() != $('#inputConfirm').val()) {
+            $('#myModalLabel').text('两次密码不一致');
+            $('#modal-body').text('两次密码不一致');
+            $('#myModBtn').click();
+            return false;
+        }
+    }
+</script>
