@@ -104,7 +104,7 @@
 				注册
 			</h2>
 			<label for="inputStuNum">学号：</label>
-			<input type="number" name="inputStuNum" id="inputStuNum" class="form-control" placeholder="student number" required="true" autofocus="true" />
+			<input type="number" name="inputStuNum" id="inputStuNum" class="form-control" placeholder="student number" required="true" />
 			<label for="inputStuName">姓名：</label>
 			<input type="text" id="inputStuName" name="inputStuName"   class="form-control" placeholder="student name" required="true" />
 			<label for="inputPassword">密码：</label>
@@ -113,7 +113,6 @@
 			<input type="password" id="inputConfirm" name="inputConfirm" class="form-control" placeholder="confirm password" required="true" />
 			<label for="inputCollege">学院：</label>
 			<select type="text" id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true">
-                <option value="计算机">计算机</option>
             </select>
 			<div class="radio">
 				<label>
@@ -161,12 +160,14 @@
     $(document).ready(function () {
         (function () {
             $.ajax({
-                url: '',
+                url: '__URL__/ajaxAcademy',
                 type: 'GET',
+                dataType: 'json',
                 success: function (data) {
-                    var data = data.toArray();
+                    console.log(data);
                     for (var i=0; i<data.length; i++) {
-                        $('#inputCollege').append('<option>' + data[i] + '</option>');
+                        console.log(data[i]);
+                        $('#inputcollege').append('<option value="' + data[i].name + '">' + data[i].name + '</option>');
                     }
                 }
             });
