@@ -164,9 +164,7 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data);
                     for (var i=0; i<data.length; i++) {
-                        console.log(data[i]);
                         $('#inputcollege').append('<option value="' + data[i].name + '">' + data[i].name + '</option>');
                     }
                 }
@@ -178,7 +176,7 @@
                type: 'get',
                data: {'StuNum': $('#inputStuNum').val()},
                success: function (data) {
-                   if(data) {
+                   if(data!= 'no') {
                        $('#myModalLabel').text('学号已注册');
                        $('.modal-body').text('学号已注册');
                        $('#myModBtn').click();
