@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" conatent="width=device-width, initial-scale=1" />
 	<title>注册</title>
-	<link rel="stylesheet" href="__ROOT__/Public/css/bootstrap.min.css" />
-	<script src="__ROOT__/Public/js/jquery-1.11.3.min.js"></script>
-	<script src="__ROOT__/Public/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/sports/SuportsWeb/sport/Public/css/bootstrap.min.css" />
+	<script src="/sports/SuportsWeb/sport/Public/js/jquery-1.11.3.min.js"></script>
+	<script src="/sports/SuportsWeb/sport/Public/js/bootstrap.min.js"></script>
 	<style>
 		body {
 		  padding-top: 40px;
@@ -61,7 +61,7 @@
 				<div class="navbar-collapse collapse" id="navbar">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="__MODULE__">主页</a>
+							<a href="/sports/SuportsWeb/sport/index.php/Home">主页</a>
 						</li>
 						<li>
 							<a href="#">排行</a>
@@ -78,10 +78,10 @@
 					</div>
 					<ul class="nav navbar-nav navbar-right"">
 						<li href="#">
-							<a href="__MODULE__/Login/login">登陆</a>
+							<a href="/sports/SuportsWeb/sport/index.php/Home/Login/login">登陆</a>
 						</li>
 						<li href="#" class="active">
-							<a href="__MODULE__/Register/register">注册</a>
+							<a href="/sports/SuportsWeb/sport/index.php/Home/Register/register">注册</a>
 						</li>
 					</ul>
 				</div>
@@ -89,7 +89,7 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form action="__APP__/Home/Register/do_register" onsubmit="return valid()" class="form-signin" method="post">
+		<form action="/sports/SuportsWeb/sport/index.php/Home/Register/do_register" onsubmit="return valid()" class="form-signin" method="post">
 			<h2 class="form-signin-heading text-center">
 				注册
 			</h2>
