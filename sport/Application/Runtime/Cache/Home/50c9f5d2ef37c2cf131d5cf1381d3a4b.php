@@ -4,9 +4,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" conatent="width=device-width, initial-scale=1" />
 	<title>登陆</title>
-	<link rel="stylesheet" href="/sport/Public/css/bootstrap.min.css" />
-	<script src="/sport/Public/js/jquery-1.11.3.min.js"></script>
-	<script src="/sport/Public/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/Sportsweb/sport/Public/css/bootstrap.min.css" />
+	<script src="/Sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
+	<script src="/Sportsweb/sport/Public/js/bootstrap.min.js"></script>
 	<style>
 		body {
 		  padding-top: 40px;
@@ -71,7 +71,7 @@
 				<div class="navbar-collapse collapse" id="navbar">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="/sport/index.php/Home">主页</a>
+							<a href="/Sportsweb/sport/index.php/Home">主页</a>
 						</li>
 						<li>
 							<a href="#">排行</a>
@@ -88,10 +88,10 @@
 					</div>
 					<ul class="nav navbar-nav navbar-right"">
 						<li href="#" class="active">
-							<a href="/sport/index.php/Home/Login/login">登陆</a>
+							<a href="/Sportsweb/sport/index.php/Home/Login/login">登陆</a>
 						</li>
 						<li href="#">
-							<a href="/sport/index.php/Home/Register/register">注册</a>
+							<a href="/Sportsweb/sport/index.php/Home/Register/register">注册</a>
 						</li>
 					</ul>
 				</div>
@@ -99,7 +99,7 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form action="do_login" class="form-signin" method="post">
+		<form action="do_login" class="form-signin" onsubmit="return validate()" method="post">
 			<h2 class="form-signin-heading text-center">
 				登录
 			</h2>
@@ -110,11 +110,62 @@
 
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" value="remember-me" name="checkbox"> Remember me
+					<input type="checkbox" id="remember" value="remember-me" name="checkbox"> Remember me
 				</label>
 			</div>
 			<button class="btn btn-lg btn-primary btn-block">登陆</button>
 		</form>
 	</div>
+	<div class="container">
+		<!-- Button trigger modal -->
+		<button style="display: none;" id="myModBtn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+			Launch demo modal
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"></h4>
+					</div>
+					<div class="modal-body">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
+<script>
+    function validate() {
+        if ($('#inputStuNum').val().length != 10) {
+            $('#myModalLabel').text('学号错误');
+            $('.modal-body').text('学号长度不够');
+            $('#myModBtn').click();
+            return false;
+        }
+            if ($('#remember').is(':checked')) {
+                document.cookie = 'StuNum' + '=' + $('#inputStuNum').val();
+                document.cookie = 'Password' + '=' + $('#inputPassword').val();
+            } else {
+                var keys=document.cookie.match(/[^ =;]+(?=\=)/g);
+                if (keys) {
+                    for (var i =  keys.length; i--;)
+                        document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString()
+                }
+            }
+            console.log(document.cookie);
+    }
+    $(document).ready(function () {
+        if (document.cookie != '') {
+            var info = document.cookie.split(';');
+            $('#inputStuNum').val(info[0].split('=')[1]);
+            $('#inputPassword').val(info[1].split('=')[1]);
+        }
+    });
+</script>
