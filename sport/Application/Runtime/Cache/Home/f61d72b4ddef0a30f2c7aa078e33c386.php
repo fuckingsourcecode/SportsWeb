@@ -4,9 +4,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" conatent="width=device-width, initial-scale=1" />
 	<title>注册</title>
-	<link rel="stylesheet" href="/sportsweb/sport/Public/css/bootstrap.min.css" />
-	<script src="/sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
-	<script src="/sportsweb/sport/Public/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/Sportsweb/sport/Public/css/bootstrap.min.css" />
+	<script src="/Sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
+	<script src="/Sportsweb/sport/Public/js/bootstrap.min.js"></script>
 	<style>
 		body {
 		  padding-top: 40px;
@@ -71,7 +71,7 @@
 				<div class="navbar-collapse collapse" id="navbar">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="/sportsweb/sport/index.php/Home">主页</a>
+							<a href="/Sportsweb/sport/index.php/Home">主页</a>
 						</li>
 						<li>
 							<a href="#">排行</a>
@@ -88,10 +88,10 @@
 					</div>
 					<ul class="nav navbar-nav navbar-right"">
 						<li href="#">
-							<a href="/sportsweb/sport/index.php/Home/Login/login">登陆</a>
+							<a href="/Sportsweb/sport/index.php/Home/Login/login">登陆</a>
 						</li>
 						<li href="#" class="active">
-							<a href="/sportsweb/sport/index.php/Home/Register/register">注册</a>
+							<a href="/Sportsweb/sport/index.php/Home/Register/register">注册</a>
 						</li>
 					</ul>
 				</div>
@@ -99,7 +99,7 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form action="/sportsweb/sport/index.php/Home/Register/do_register" onsubmit="return validate()" class="form-signin" method="post">
+		<form action="/Sportsweb/sport/index.php/Home/Register/do_register" onsubmit="return validate()" class="form-signin" method="post">
 			<h2 class="form-signin-heading text-center">
 				注册
 			</h2>
@@ -122,6 +122,8 @@
 					<input type="radio" name="optionsRadio" id="optionsRadio2" required value="female"> 女
 				</label>
 			</div>
+			<input type="text" class="form-control"  placeholder='verify' name="reverify" required="true">
+			<img onclick="this.src=this.src+'?'+Math.random()" src="/Sportsweb/sport/index.php/Home/Register/verify">
 			<!-- <div class="checkbox">
 				<label>
 					<input type="checkbox" value="remember-me"> Remember me
@@ -160,8 +162,8 @@
     $(document).ready(function () {
         (function () {
             $.ajax({
-                url: '/sportsweb/sport/index.php/Home/Register/ajaxAcademy',
-                type: 'GET',
+                url: '/Sportsweb/sport/index.php/Home/Register/ajaxAcademy',
+                type: 'post',
                 dataType: 'json',
                 success: function (data) {
                     for (var i=0; i<data.length; i++) {
@@ -173,14 +175,13 @@
         $('#inputStuNum').blur(function () {
            $.ajax({
                url: '',
-               type: 'get',
+               type: 'post',
                data: {'StuNum': $('#inputStuNum').val()},
                success: function (data) {
-               	console.log(data);
                    if(data!= 'no') {
-                       // $('#myModalLabel').text('学号已注册');
-                       // $('.modal-body').text('学号已注册');
-                       // $('#myModBtn').click();
+                       $('#myModalLabel').text('学号已注册');
+                       $('.modal-body').text('学号已注册');
+                       $('#myModBtn').click();
                    }
                }
            })

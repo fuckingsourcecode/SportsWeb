@@ -7,11 +7,13 @@ class IndexController extends Controller {
     public function index()
     {
          $m=new Model();
+        /*运动快报*/
         $arr=$m->query('select * from `sport_news`');
         $this->assign('arr',$arr);
-
+        /*预告消息*/
         $array=$m->query('select * from `sport_project` ORDER BY `hosttime` asc');
         $this->assign('array',$array);
+
         $this->display();
     }
     public function checkSession()
@@ -27,6 +29,8 @@ class IndexController extends Controller {
     public function logout()
     {
         session(null);
-        $this->redirect("index");
+        //$this->ajaxReturn("OK");
+        $this->redirect('index');
     }
+
 }

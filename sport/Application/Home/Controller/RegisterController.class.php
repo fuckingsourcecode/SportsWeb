@@ -8,15 +8,24 @@ class RegisterController extends  Controller{
      {
          $this->display();
      }
-
+//处理注册事件
     public function do_register()
     {
+
+        //验证验证码
+        $Verify = new \Think\Verify();
+        if(!$Verify->check($_POST['reverify'],'re'))
+        {
+            $this->error('验证码错误');
+        }
+
         $id = $_POST['inputStuNum'];
         $name = $_POST['inputStuName'];
         $password = $_POST['inputPassword'];
         $confirm = $_POST['inputConfirm'];
         $academy = $_POST['inputCollege'];
         $sex = $_POST['optionsRadio'];
+
       /*  //thinkphp对数据的插入操作
       $m = M('user');
        $date = array(
@@ -37,9 +46,10 @@ class RegisterController extends  Controller{
             exit;
         } else
         {
-            $this->error("注册失败！");
+            $this->error("注册失败,学号已存在！");
         }
     }
+    /*传递所有学院*/
     public function ajaxAcademy()
     {
         $m=new Model();
@@ -48,6 +58,7 @@ class RegisterController extends  Controller{
         $arr=$m->query($sql);
         $this->ajaxReturn($arr);
     }
+    /*传递学号，检测是否已存在*/
     public function ajaxNum()
     {
         $id=$_POST['StuNum'];
@@ -61,5 +72,14 @@ class RegisterController extends  Controller{
         else{
             $this->ajaxReturn("ok");
         }
+    }
+
+    public function verify()
+    {
+        $Verify = new \Think\Verify();
+        $Verify->fontSize = 20;
+        $Verify->length   = 4;
+        $Verify->useNoise = false;
+        $Verify->entry('re');
     }
 }
