@@ -9,12 +9,21 @@
     <script src="__ROOT__/Public/js/jquery-1.11.3.min.js"></script>
     <script src="__ROOT__/Public/js/bootstrap.min.js"></script>
     <style>
-    	img {
-    		height: 400px !important;
-    		width: 1200px;
-    	}
+    body {
+        padding: 60px;
+    }
+    
+    img {
+        height: 400px !important;
+        width: 100%;
+    }
+    
+    .wrap {
+        margin-top: 2%;
+    }
     </style>
 </head>
+
 <body>
     <div class="container">
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -60,18 +69,91 @@
     </div>
     <div class="container">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        	<ol class="carousel-indicators">
-        		<li data-></li>
-        	</ol>
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="__ROOT__/Public/images/1.jpg" alt="">
+                    <div class="carousel-caption">One</div>
+                </div>
+                <div class="item">
+                    <img src="__ROOT__/Public/images/2.jpg" alt="">
+                    <div class="carousel-caption">Two</div>
+                </div>
+                <div class="item">
+                    <img src="__ROOT__/Public/images/3.jpg" alt="">
+                    <div class="carousel-caption">Three</div>
+                </div>
+                <div class="item">
+                    <img src="__ROOT__/Public/images/4.jpg" alt="">
+                    <div class="carousel-caption">Four</div>
+                </div>
+            </div>
+            <a href="#carousel-example-generic" role="button" data-slide="prev" class="left carousel-control">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">上一张</span>
+            </a>
+            <a href="#carousel-example-generic" role="button" data-slide="next" class="right carousel-control">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">下一张</span>
+            </a>
         </div>
     </div>
-    <div class="container">
-    	<div class="row publish">
-    		<ul class="list-group">
-    			<li class="list-item"></li>
-    		</ul>
-    	</div>
-    	<div class="row"></div>
+    <div class="wrap text-center">
+        <div class="container">
+            <div class="row col-sm-6 text-center">
+                <table class="table table-bordered">
+                    <thead>
+                        <th class="text-center">
+                            快报
+                        </th>
+                    </thead>
+                    <tbody>
+                        <volist name='arr' id='vo'>
+                            <tr>
+                                <td>
+                                    <a href="#"><{$vo.title}></a>
+                                </td>
+                            </tr>
+                        </volist>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row col-sm-6 text-center">
+                <table class="table table-bordered">
+                    <thead>
+                        <th class="text-center">
+                            时间
+                        </th>
+                        <th class="text-center">
+                            项目
+                        </th>
+                        <th class="text-center">
+                            地点
+                        </th>
+                    </thead>
+                    <tbody>
+                        <volist name='array' id='vo1'>
+                            <tr>
+                                <td>
+                                    <{$vo1.hosttime}>
+                                </td>
+                                <td class="text-center">
+                                    <{$vo1.name}>
+                                </td>
+                                <td>
+                                    <{$vo1.where}>
+                                </td>
+                            </tr>
+                        </volist>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 
