@@ -161,7 +161,7 @@
         (function () {
             $.ajax({
                 url: '__URL__/ajaxAcademy',
-                type: 'GET',
+                type: 'post',
                 dataType: 'json',
                 success: function (data) {
                     for (var i=0; i<data.length; i++) {
@@ -173,7 +173,7 @@
         $('#inputStuNum').blur(function () {
            $.ajax({
                url: '',
-               type: 'get',
+               type: 'post',
                data: {'StuNum': $('#inputStuNum').val()},
                success: function (data) {
                    if(data!= 'no') {
