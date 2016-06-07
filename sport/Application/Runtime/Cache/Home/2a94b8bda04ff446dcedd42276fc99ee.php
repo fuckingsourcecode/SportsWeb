@@ -43,10 +43,10 @@
                             <a href="/Sportsweb/sport/index.php/Home">主页</a>
                         </li>
                         <li>
-                            <a href="#">排行</a>
+                            <a href="/Sportsweb/sport/index.php/Home/Rank/rank">排行</a>
                         </li>
                         <li>
-                            <a href="#">活动</a>
+                            <a href="/Sportsweb/sport/index.php/Home/Activity/activity">活动</a>
                         </li>
                     </ul>
                     <div class="navbar-form navbar-left" role="search">

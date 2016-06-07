@@ -74,10 +74,10 @@
 							<a href="/Sportsweb/sport/index.php/Home">主页</a>
 						</li>
 						<li>
-							<a href="#">排行</a>
+							<a href="/Sportsweb/sport/index.php/Home/Rank/rank">排行</a>
 						</li>
 						<li>
-							<a href="#">活动</a>
+							<a href="/Sportsweb/sport/index.php/Home/Activity/activity">活动</a>
 						</li>
 					</ul>
 					<div class="navbar-form navbar-left" role="search">
@@ -111,6 +111,8 @@
 			<input type="password" id="inputPassword" name="inputPassword"  class="form-control" placeholder="password" required="true" />
 			<label for="inputConfirm">确认密码：</label>
 			<input type="password" id="inputConfirm" name="inputConfirm" class="form-control" placeholder="confirm password" required="true" />
+			<label for="inputStuClass">班级：</label>
+			<input type="number" name="inputStuClass" id="inputStuClass" class="form-control" placeholder="student class" required="true" />
 			<label for="inputCollege">学院：</label>
 			<select type="text" id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true">
             </select>
@@ -122,7 +124,8 @@
 					<input type="radio" name="optionsRadio" id="optionsRadio2" required value="female"> 女
 				</label>
 			</div>
-			<input type="text" class="form-control"  placeholder='verify' name="reverify" required="true">
+			<label for="reverify">验证：</label>
+			<input type="text" class="form-control" id="reverify" placeholder='verify' name="reverify" required="true">
 			<img onclick="this.src=this.src+'?'+Math.random()" src="/Sportsweb/sport/index.php/Home/Register/verify">
 			<!-- <div class="checkbox">
 				<label>
@@ -174,11 +177,11 @@
         })();
         $('#inputStuNum').blur(function () {
            $.ajax({
-               url: '',
+               url: '/Sportsweb/sport/index.php/Home/Register/ajaxNum',
                type: 'post',
                data: {'StuNum': $('#inputStuNum').val()},
                success: function (data) {
-                   if(data!= 'no') {
+                   if(data == 'already') {
                        $('#myModalLabel').text('学号已注册');
                        $('.modal-body').text('学号已注册');
                        $('#myModBtn').click();
@@ -197,6 +200,12 @@
         if ($('#inputPassword').val() != $('#inputConfirm').val()) {
             $('#myModalLabel').text('两次密码不一致');
             $('.modal-body').text('两次密码不一致');
+            $('#myModBtn').click();
+            return false;
+        }
+        if ($('#inputStuClass').val().length != 7) {
+            $('#myModalLabel').text('班级错误');
+            $('.modal-body').text('班级长度不够');
             $('#myModBtn').click();
             return false;
         }
