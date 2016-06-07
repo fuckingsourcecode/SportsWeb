@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" conatent="width=device-width, initial-scale=1" />
+    <title>注册</title>
+    <!-- 此例子是结合bootstrap的Datatables，暂且定位为最基本的例子吧 -->
+    <!-- 引入必须的css和js文件 -->
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.css" />
+    <script src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.js"></script>
+    <script src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <!-- HTML代码片段中请勿添加<body>标签 //-->
+    <div id="container">
+        <!-- 定义一个表格元素 -->
+        <button id="redraw">更换数据源</button>
+        <table id="example" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>序号</th>
+                    <th>标题</th>
+                    <th>连接</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <!-- tbody是必须的 -->
+        </table>
+    </div>
+    </body>
+
+</html>
+<script>
+/*Javascript代码片段*/
+var t = $('#example').DataTable({
+    ajax: {
+        //指定数据源
+        url: "test.txt"
+    },
+    //每页显示三条数据
+    pageLength: 3,
+    columns: [{
+        "data": null //此列不绑定数据源，用来显示序号
+    },
+    {
+        "data": "ID"
+    },
+    {
+        "data": "position"
+    },
+    {
+        "data": "project"
+    }],
+    "columnDefs": [{
+        // "visible": false,
+        //"targets": 0
+    },
+    {
+        "render": function(data, type, row, meta) {
+            //渲染 把数据源中的标题和url组成超链接
+            return '<a href="' + data + '" target="_blank">' + '查看' + '</a>';
+        },
+        //指定是第三列
+        "targets": 3
+    }]
+
+});
+
+//前台添加序号
+t.on('order.dt search.dt',
+function() {
+    t.column(0, {
+        "search": 'applied',
+        "order": 'applied'
+    }).nodes().each(function(cell, i) {
+        cell.innerHTML = i + 1;
+    });
+}).draw();
+
+//更换数据源（相同格式，但是数据内容不同）
+$("#redraw").click(function() {
+    var url = table.api().ajax.url("test.txt");
+    url.load();
+});
+</script>
