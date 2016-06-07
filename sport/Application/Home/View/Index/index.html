@@ -58,7 +58,7 @@
 		(function () {
 			$.ajax({
 				url: '__URL__/checkSession',
-				type: 'GET',
+				type: 'post',
 				success: function (data) {
 					if(data != 'please login') {
 						$('.navbar-right li a').eq(0).text(data).attr('href', 'https://www.baidu.com');
