@@ -39,7 +39,7 @@
 						</div>
 						<button class="btn btn-primary" type="submit">Submit</button>
 					</div>
-					<ul class="nav navbar-nav navbar-right"">
+					<ul class="nav navbar-nav navbar-right">
 						<li href="#">
 							<a href="__MODULE__/Login/login">登陆</a>
 						</li>
@@ -53,3 +53,19 @@
 	</div>
 </body>
 </html>
+<script>
+	$(document).ready(function () {
+		(function () {
+			$.ajax({
+				url: '__URL__/checkSession',
+				type: 'GET',
+				success: function (data) {
+					if(data != 'please login') {
+						$('.navbar-right li a').eq(0).text(data).attr('href', 'https://www.baidu.com');
+						$('.navbar-right li a').eq(1).text('注销').attr('href', '__URL__/logout');
+					}
+				}
+			})
+		})();
+	});
+</script>
