@@ -23,6 +23,7 @@ class RegisterController extends  Controller{
         $name = $_POST['inputStuName'];
         $password = $_POST['inputPassword'];
         $classid=$_POST['inputStuClass'];
+        $grade=$_POST['inputStuGrade'];
         //$confirm = $_POST['inputConfirm'];
         $academy = $_POST['inputCollege'];
         $sex = $_POST['optionsRadio'];
@@ -39,7 +40,7 @@ class RegisterController extends  Controller{
         $count = $m->add($date);*/
         $m=new Model();
         $m->query("SET NAMES 'utf8'");
-        $sql="INSERT INTO `sport_user`(`id`, `name`, `password`, `classid`, `academy`, `sex`) VALUES ('$id','$name','$password','$classid','$academy','$sex')";
+        $sql="INSERT INTO `sport_user`(`id`, `name`, `password`, `classid`,`grade`, `academy`, `sex`) VALUES ('$id','$name','$password','$classid','$grade','$academy','$sex')";
         $count=$m->execute($sql);
        if ($count)
         {
