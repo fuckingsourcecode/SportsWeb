@@ -111,6 +111,8 @@
 			<input type="password" id="inputPassword" name="inputPassword"  class="form-control" placeholder="password" required="true" />
 			<label for="inputConfirm">确认密码：</label>
 			<input type="password" id="inputConfirm" name="inputConfirm" class="form-control" placeholder="confirm password" required="true" />
+			<label for="inputStuClass">班级：</label>
+			<input type="number" name="inputStuClass" id="inputStuClass" class="form-control" placeholder="student class" required="true" />
 			<label for="inputCollege">学院：</label>
 			<select type="text" id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true">
             </select>
@@ -122,7 +124,8 @@
 					<input type="radio" name="optionsRadio" id="optionsRadio2" required value="female"> 女
 				</label>
 			</div>
-			<input type="text" class="form-control"  placeholder='verify' name="reverify" required="true">
+			<label for="reverify">验证：</label>
+			<input type="text" class="form-control" id="reverify" placeholder='verify' name="reverify" required="true">
 			<img onclick="this.src=this.src+'?'+Math.random()" src="__URL__/verify">
 			<!-- <div class="checkbox">
 				<label>
@@ -197,6 +200,12 @@
         if ($('#inputPassword').val() != $('#inputConfirm').val()) {
             $('#myModalLabel').text('两次密码不一致');
             $('.modal-body').text('两次密码不一致');
+            $('#myModBtn').click();
+            return false;
+        }
+        if ($('#inputStuClass').val().length != 7) {
+            $('#myModalLabel').text('班级错误');
+            $('.modal-body').text('班级长度不够');
             $('#myModBtn').click();
             return false;
         }
