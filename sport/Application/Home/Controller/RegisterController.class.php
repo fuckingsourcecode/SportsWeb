@@ -11,7 +11,6 @@ class RegisterController extends  Controller{
 
     public function do_register()
     {
-
         $id = $_POST['inputStuNum'];
         $name = $_POST['inputStuName'];
         $password = $_POST['inputPassword'];
@@ -47,19 +46,20 @@ class RegisterController extends  Controller{
         $m->query('set names utf8');
         $sql="select name from sport_academy ";
         $arr=$m->query($sql);
-        $this->ajaxReturn($arr,'JSON');
+        $this->ajaxReturn($arr);
     }
     public function ajaxNum()
     {
-        $id=$_POST['id'];
+        $id=$_POST['StuNum'];
         $m=M('user');
-        $count=$m->where($id)->select();
+        $where['id']=$id;
+        $count=$m->where($where)->find();
         if($count>0)
         {
-            $this->ajaxReturn("该账号已注册！");
+            $this->ajaxReturn("already");
         }
         else{
-            $this->ajaxReturn("该账号可注册！");
+            $this->ajaxReturn("ok");
         }
     }
 }
