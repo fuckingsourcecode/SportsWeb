@@ -22,7 +22,8 @@ class RegisterController extends  Controller{
         $id = $_POST['inputStuNum'];
         $name = $_POST['inputStuName'];
         $password = $_POST['inputPassword'];
-        $confirm = $_POST['inputConfirm'];
+        $classid=$_POST['inputStuClass'];
+        //$confirm = $_POST['inputConfirm'];
         $academy = $_POST['inputCollege'];
         $sex = $_POST['optionsRadio'];
 
@@ -38,7 +39,7 @@ class RegisterController extends  Controller{
         $count = $m->add($date);*/
         $m=new Model();
         $m->query("SET NAMES 'utf8'");
-        $sql="INSERT INTO `sport_user`(`id`, `name`, `password`, `academy`, `sex`) VALUES ('$id','$name','$password','$academy','$sex')";
+        $sql="INSERT INTO `sport_user`(`id`, `name`, `password`, `classid`, `academy`, `sex`) VALUES ('$id','$name','$password','$classid','$academy','$sex')";
         $count=$m->execute($sql);
        if ($count)
         {
@@ -46,7 +47,7 @@ class RegisterController extends  Controller{
             exit;
         } else
         {
-            $this->error("注册失败,学号已存在！");
+            $this->error("注册失败！");
         }
     }
     /*传递所有学院*/

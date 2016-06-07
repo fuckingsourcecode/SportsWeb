@@ -6,10 +6,17 @@ use Think\Model;
  {
      public function activity()
      {
+        $m=M();
+         $arr=$m->query("select name from `sport_project`");
+         $this->assign('arr',$arr);
+        $this->display();
+     }
+     public function join()
+     {
          $name=session('name');
          $id=session('id');
          $arr['name']=$name;
          $arr['id']=$id;
-        $this->display();
+
      }
  }

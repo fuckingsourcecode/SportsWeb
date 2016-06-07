@@ -19,6 +19,7 @@ class LoginController extends Controller{
 
         $id = $_POST['inputStuNum'];
         $password = $_POST['inputPassword'];
+
         $checkbox=$_POST['checkbox'];
         /*   thinkphp的sql操作函数
            $m=M('user');
