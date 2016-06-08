@@ -23,8 +23,7 @@ class RegisterController extends  Controller{
         $name = $_POST['inputStuName'];
         $password = $_POST['inputPassword'];
         $classid=$_POST['inputStuClass'];
-        $grade=$_POST['inputStuGrade'];
-        //$confirm = $_POST['inputConfirm'];
+        $grade=$_POST['inputGrade'];
         $academy = $_POST['inputCollege'];
         $sex = $_POST['optionsRadio'];
 

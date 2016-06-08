@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" conatent="width=device-width, initial-scale=1" />
     <title>主页</title>
-    <link rel="stylesheet" type="text/css" href="/Sportsweb/sport/Public/css/bootstrap.min.css" />
-    <script src="/Sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
-    <script src="/Sportsweb/sport/Public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sport/Public/css/bootstrap.min.css" />
+    <script src="/sport/Public/js/jquery-1.11.3.min.js"></script>
+    <script src="/sport/Public/js/bootstrap.min.js"></script>
     <style>
     body {
         padding: 60px;
@@ -40,13 +40,13 @@
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="/Sportsweb/sport/index.php/Home">主页</a>
+                            <a href="/sport/index.php/Home">主页</a>
                         </li>
                         <li>
-                            <a href="/Sportsweb/sport/index.php/Home/Rank/rank">排行</a>
+                            <a href="/sport/index.php/Home/Rank/rank">排行</a>
                         </li>
                         <li>
-                            <a href="/Sportsweb/sport/index.php/Home/Activity/activity">活动</a>
+                            <a href="/sport/index.php/Home/Activity/activity">活动</a>
                         </li>
                     </ul>
                     <div class="navbar-form navbar-left" role="search">
@@ -57,10 +57,10 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right">
                         <li href="#">
-                            <a href="/Sportsweb/sport/index.php/Home/Login/login">登陆</a>
+                            <a href="/sport/index.php/Home/Login/login">登陆</a>
                         </li>
                         <li href="#">
-                            <a href="/Sportsweb/sport/index.php/Home/Register/register">注册</a>
+                            <a href="/sport/index.php/Home/Register/register">注册</a>
                         </li>
                     </ul>
                 </div>
@@ -77,19 +77,19 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="/Sportsweb/sport/Public/images/1.jpg" alt="">
+                    <img src="/sport/Public/images/1.jpg" alt="">
                     <div class="carousel-caption">One</div>
                 </div>
                 <div class="item">
-                    <img src="/Sportsweb/sport/Public/images/2.jpg" alt="">
+                    <img src="/sport/Public/images/2.jpg" alt="">
                     <div class="carousel-caption">Two</div>
                 </div>
                 <div class="item">
-                    <img src="/Sportsweb/sport/Public/images/3.jpg" alt="">
+                    <img src="/sport/Public/images/3.jpg" alt="">
                     <div class="carousel-caption">Three</div>
                 </div>
                 <div class="item">
-                    <img src="/Sportsweb/sport/Public/images/4.jpg" alt="">
+                    <img src="/sport/Public/images/4.jpg" alt="">
                     <div class="carousel-caption">Four</div>
                 </div>
             </div>
@@ -158,12 +158,12 @@
 $(document).ready(function() {
     (function() {
         $.ajax({
-            url: '/Sportsweb/sport/index.php/Home/Index/checkSession',
+            url: '/sport/index.php/Home/Index/checkSession',
             type: 'post',
             success: function(data) {
                 if (data != 'please login') {
                     $('.navbar-right li a').eq(0).text(data).attr('href', 'https://www.baidu.com');
-                    $('.navbar-right li a').eq(1).text('注销').attr('href', '/Sportsweb/sport/index.php/Home/Index/logout');
+                    $('.navbar-right li a').eq(1).text('注销').attr('href', '/sport/index.php/Home/Index/logout');
                 }
             }
         });

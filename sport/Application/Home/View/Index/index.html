@@ -8,8 +8,6 @@
     <load rel="stylesheet" href="__ROOT__/Public/css/bootstrap.min.css" />
     <script src="__ROOT__/Public/js/jquery-1.11.3.min.js"></script>
     <script src="__ROOT__/Public/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
-    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <style>
     body {
         padding: 60px;
@@ -108,14 +106,22 @@
     <div class="wrap text-center">
         <div class="container">
             <div class="row col-sm-6 text-center">
-                <div id="accordion">
-                    <volist name='arr' id='vo'>
-                        <h3><{$vo.title}></h3>
-                        <p>
-                            <{$vo.contents}>
-                        </p>
-                    </volist>
-                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <th class="text-center">
+                            快报
+                        </th>
+                    </thead>
+                    <tbody>
+                        <volist name='arr' id='vo'>
+                            <tr>
+                                <td>
+                                    <a href="#"><{$vo.title}></a>
+                                </td>
+                            </tr>
+                        </volist>
+                    </tbody>
+                </table>
             </div>
             <div class="row col-sm-6 text-center">
                 <table class="table table-bordered">
@@ -166,21 +172,16 @@ $(document).ready(function() {
             }
         });
         // $.ajax({
-        //  url: '',
-        //  type: 'GET',
-        //  dataType: 'json',
-        //  success: function (data) {
-        //       var obj = JSON.parse(data);
-        //       obj.map(function (argument) {
-        //          $('.publish .list-group').append('<li class="list-item"><a href="#"'+ this[] +'</li>')
-        //       });
-        //  }
+        // 	url: '',
+        // 	type: 'GET',
+        // 	dataType: 'json',
+        // 	success: function (data) {
+        // 		 var obj = JSON.parse(data);
+        // 		 obj.map(function (argument) {
+        // 		 	$('.publish .list-group').append('<li class="list-item"><a href="#"'+ this[] +'</li>')
+        // 		 });
+        // 	}
         // })
     })();
 });
-(function(argument) {
-    $("#accordion").accordion({
-        collapsible: true
-    })
-})();
 </script>

@@ -119,12 +119,12 @@
                 <volist name="arr " id="vo ">
                     <div class="form-control ">
                         <label>
-                            <input type="checkbox" name="project" value=<{$vo.name}> /><{$vo.name}>
+                            <input type="checkbox" name="project[]" value=<{$vo.name}> /><{$vo.name}>
                         </label>
                     </div>
                         
                 </volist>
-                
+
             <button class="btn btn-lg btn-primary btn-block " type="submit ">提交</button>
         </form>
     </div>
@@ -132,7 +132,7 @@
 <script>
     $(function (argument) {
          $.ajax({
-            url: '__URL__/checkSession',
+            url: '__MODULE__/Index/checkSession',
             type: 'post',
             success: function(data) {
                 if (data != 'please login') {

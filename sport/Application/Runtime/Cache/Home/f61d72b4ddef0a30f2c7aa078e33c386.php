@@ -4,9 +4,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" conatent="width=device-width, initial-scale=1" />
 	<title>注册</title>
-	<link rel="stylesheet" href="/Sportsweb/sport/Public/css/bootstrap.min.css" />
-	<script src="/Sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
-	<script src="/Sportsweb/sport/Public/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/sport/Public/css/bootstrap.min.css" />
+	<script src="/sport/Public/js/jquery-1.11.3.min.js"></script>
+	<script src="/sport/Public/js/bootstrap.min.js"></script>
 	<style>
 		body {
 		  padding-top: 40px;
@@ -71,13 +71,13 @@
 				<div class="navbar-collapse collapse" id="navbar">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="/Sportsweb/sport/index.php/Home">主页</a>
+							<a href="/sport/index.php/Home">主页</a>
 						</li>
 						<li>
-							<a href="/Sportsweb/sport/index.php/Home/Rank/rank">排行</a>
+							<a href="/sport/index.php/Home/Rank/rank">排行</a>
 						</li>
 						<li>
-							<a href="/Sportsweb/sport/index.php/Home/Activity/activity">活动</a>
+							<a href="/sport/index.php/Home/Activity/activity">活动</a>
 						</li>
 					</ul>
 					<div class="navbar-form navbar-left" role="search">
@@ -88,10 +88,10 @@
 					</div>
 					<ul class="nav navbar-nav navbar-right"">
 						<li href="#">
-							<a href="/Sportsweb/sport/index.php/Home/Login/login">登陆</a>
+							<a href="/sport/index.php/Home/Login/login">登陆</a>
 						</li>
 						<li href="#" class="active">
-							<a href="/Sportsweb/sport/index.php/Home/Register/register">注册</a>
+							<a href="/sport/index.php/Home/Register/register">注册</a>
 						</li>
 					</ul>
 				</div>
@@ -99,7 +99,7 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form action="/Sportsweb/sport/index.php/Home/Register/do_register" onsubmit="return validate()" class="form-signin" method="post">
+		<form action="/sport/index.php/Home/Register/do_register" onsubmit="return validate()" class="form-signin" method="post">
 			<h2 class="form-signin-heading text-center">
 				注册
 			</h2>
@@ -113,6 +113,9 @@
 			<input type="password" id="inputConfirm" name="inputConfirm" class="form-control" placeholder="confirm password" required="true" />
 			<label for="inputStuClass">班级：</label>
 			<input type="number" name="inputStuClass" id="inputStuClass" class="form-control" placeholder="student class" required="true" />
+			<label for="inputGrade">年级：</label>
+			<select type="text" id="inputGrade" name="inputGrade" class="form-control" placeholder="grade" required="true">
+            </select>
 			<label for="inputCollege">学院：</label>
 			<select type="text" id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true">
             </select>
@@ -126,14 +129,14 @@
 			</div>
 			<label for="reverify">验证：</label>
 			<input type="text" class="form-control" id="reverify" placeholder='verify' name="reverify" required="true">
-			<img onclick="this.src=this.src+'?'+Math.random()" src="/Sportsweb/sport/index.php/Home/Register/verify">
+			<img onclick="this.src=this.src+'?'+Math.random()" src="/sport/index.php/Home/Register/verify">
 			<!-- <div class="checkbox">
 				<label>
 					<input type="checkbox" value="remember-me"> Remember me
 				</label>
 			</div> -->
 
-			<button class="btn btn-lg btn-primary btn-block">注册</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
 		</form>
         <div class="container">
             <!-- Button trigger modal -->
@@ -165,7 +168,7 @@
     $(document).ready(function () {
         (function () {
             $.ajax({
-                url: '/Sportsweb/sport/index.php/Home/Register/ajaxAcademy',
+                url: '/sport/index.php/Home/Register/ajaxAcademy',
                 type: 'post',
                 dataType: 'json',
                 success: function (data) {
@@ -177,7 +180,7 @@
         })();
         $('#inputStuNum').blur(function () {
            $.ajax({
-               url: '/Sportsweb/sport/index.php/Home/Register/ajaxNum',
+               url: '/sport/index.php/Home/Register/ajaxNum',
                type: 'post',
                data: {'StuNum': $('#inputStuNum').val()},
                success: function (data) {
@@ -189,11 +192,22 @@
                }
            })
         });
+        (function () {
+        	var date = new Date();
+        	var child = '';
+        	for(var i=0; i<=6; i++) {
+        		if (i>3) {
+        			$('#inputGrade').append('<option value="'+ (date.getFullYear() - i) +'届研究生">' + (date.getFullYear() - i) + '届研究生</option>');
+        		}else {
+        			$('#inputGrade').append('<option value="'+ (date.getFullYear() - i) +'届本科生">' + (date.getFullYear() - i) + '届本科生</option>');
+        		}
+        	}
+        })();
     });
     function validate() {
         if ($('#inputStuNum').val().length != 10) {
             $('#myModalLabel').text('学号错误');
-            $('.modal-body').text('学号长度不够');
+            $('.modal-body').text('学号长度错误');
             $('#myModBtn').click();
             return false;
         }
@@ -205,7 +219,7 @@
         }
         if ($('#inputStuClass').val().length != 7) {
             $('#myModalLabel').text('班级错误');
-            $('.modal-body').text('班级长度不够');
+            $('.modal-body').text('班级长度错误');
             $('#myModBtn').click();
             return false;
         }

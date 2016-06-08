@@ -113,6 +113,9 @@
 			<input type="password" id="inputConfirm" name="inputConfirm" class="form-control" placeholder="confirm password" required="true" />
 			<label for="inputStuClass">班级：</label>
 			<input type="number" name="inputStuClass" id="inputStuClass" class="form-control" placeholder="student class" required="true" />
+			<label for="inputGrade">年级：</label>
+			<select type="text" id="inputGrade" name="inputGrade" class="form-control" placeholder="grade" required="true">
+            </select>
 			<label for="inputCollege">学院：</label>
 			<select type="text" id="inputcollege" name="inputCollege" class="form-control" placeholder="college" required="true">
             </select>
@@ -189,11 +192,22 @@
                }
            })
         });
+        (function () {
+        	var date = new Date();
+        	var child = '';
+        	for(var i=0; i<=6; i++) {
+        		if (i>3) {
+        			$('#inputGrade').append('<option value="'+ (date.getFullYear() - i) +'届研究生">' + (date.getFullYear() - i) + '届研究生</option>');
+        		}else {
+        			$('#inputGrade').append('<option value="'+ (date.getFullYear() - i) +'届本科生">' + (date.getFullYear() - i) + '届本科生</option>');
+        		}
+        	}
+        })();
     });
     function validate() {
         if ($('#inputStuNum').val().length != 10) {
             $('#myModalLabel').text('学号错误');
-            $('.modal-body').text('学号长度不够');
+            $('.modal-body').text('学号长度错误');
             $('#myModBtn').click();
             return false;
         }
@@ -205,7 +219,7 @@
         }
         if ($('#inputStuClass').val().length != 7) {
             $('#myModalLabel').text('班级错误');
-            $('.modal-body').text('班级长度不够');
+            $('.modal-body').text('班级长度错误');
             $('#myModBtn').click();
             return false;
         }
