@@ -19,6 +19,7 @@ class LoginController extends Controller{
 
         $id = $_POST['inputStuNum'];
         $password = $_POST['inputPassword'];
+
         $checkbox=$_POST['checkbox'];
         /*   thinkphp的sql操作函数
            $m=M('user');
@@ -35,18 +36,31 @@ class LoginController extends Controller{
            //$date['name']= $m->where($where)->getField('name');
            //$date['id']=$m->where($where)->getField('id');
 
-           //取出登录者的name作为session
+         /*  //取出登录者的name作为session
            $sql1="select NAME from `sport_user` WHERE `id`='$id'and `password`='$password'";
            $date=$m->query($sql1);
             $name= $date[0]['NAME'];
-           session('name',$name);
+           session('name',$name);*/
 
-           //取出登录者的id作为session
-           $sql2="select ID from `sport_user` WHERE `id`='$id'and `password`='$password'";
-           $dates=$m->query($sql2);
-           $id= $dates[0]['ID'];
+           //取出登录者的信息作为session
+         $sql1="select * from `sport_user`WHERE `id`='$id'and `password`='$password' ";
+           $date=$m->query($sql1);
+            $id=$date[0]['id'];
+            $name=$date[0]['name'];
+           $classid=$date[0]['classid'];
+           $grade=$date[0]['grade'];
+           $academy=$date[0]['academy'];
+           $sex=$date[0]['sex'];
+           $project=$date[0]['project'];
 
            session('id',$id);
+           session('name',$name);
+           session('classid',$classid);
+           session('grade',$grade);
+           session('academy',$academy);
+           session('sex',$sex);
+           session('project',$project);
+
 
            $this->success('登录成功',U('Index/index'),3);
        }
