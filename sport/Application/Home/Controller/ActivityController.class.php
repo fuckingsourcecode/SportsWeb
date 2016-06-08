@@ -24,13 +24,16 @@ use Think\Model;
          $array =$_POST["project"];
          $project=implode('/',$array);
 
+
          $m1=new Model();
          $m1->query('set names utf8');
-         $sql1="select * from  `sport_player` WHERE `id`='$id' AND `name`='$name'";
+         $sql1="select count(*) from  `sport_player` WHERE `id`='$id' AND `name`='$name'";
          $find=$m1->query($sql1);
-         if($find!='false')
+         $find=($find[0]['count(*)']);
+        if($find>0)
          {
              $this->error("已经报名过啦");
+             exit;
          }
 
          $sq2="insert into `sport_player`(`id`,`name`,`classid`,`grade`,`academy`,`sex` ,`project`)VALUES ('$id','$name','$classid','$grade','$academy','$sex','$project')";
