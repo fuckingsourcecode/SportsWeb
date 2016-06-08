@@ -9,6 +9,9 @@ use Think\Model;
         $m=M();
          $arr=$m->query("select name from `sport_project`");
          $this->assign('arr',$arr);
+         $date['name']=session('name');
+         $date['id']=session('id');
+         $this->assign('session',$date);
         $this->display();
      }
      public function join()
@@ -24,12 +27,12 @@ use Think\Model;
          $array =$_POST["project"];
          $project=implode('/',$array);
 
-
          $m1=new Model();
          $m1->query('set names utf8');
          $sql1="select count(*) from  `sport_player` WHERE `id`='$id' AND `name`='$name'";
          $find=$m1->query($sql1);
          $find=($find[0]['count(*)']);
+
         if($find>0)
          {
              $this->error("已经报名过啦");
