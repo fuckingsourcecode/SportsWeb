@@ -137,7 +137,7 @@
             success: function(data) {
                 if (data != 'please login') {
                     $('.navbar-right li a').eq(0).text(data).attr('href', 'https://www.baidu.com');
-                    $('.navbar-right li a').eq(1).text('注销').attr('href', '__URL__/logout');
+                    $('.navbar-right li a').eq(1).text('注销').attr('href', '__MODULE__/Index/logout');
                 }
             }
         }); 
