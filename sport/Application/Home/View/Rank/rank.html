@@ -196,4 +196,16 @@ $("#redraw ").click(function() {
     var url = table.api().ajax.url("test.txt ");
     url.load();
 });
+$(function (argument) {
+         $.ajax({
+            url: '__URL__/checkSession',
+            type: 'post',
+            success: function(data) {
+                if (data != 'please login') {
+                    $('.navbar-right li a').eq(0).text(data).attr('href', 'https://www.baidu.com');
+                    $('.navbar-right li a').eq(1).text('注销').attr('href', '__URL__/logout');
+                }
+            }
+        }); 
+    })();
 </script>

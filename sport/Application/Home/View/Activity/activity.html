@@ -130,9 +130,9 @@
     </div>
 </html>
 <script>
-    $(function (argument) {
+    (function (argument) {
          $.ajax({
-            url: '__URL__/checkSession',
+            url: '__MODULE__/Index/checkSession',
             type: 'post',
             success: function(data) {
                 if (data != 'please login') {
