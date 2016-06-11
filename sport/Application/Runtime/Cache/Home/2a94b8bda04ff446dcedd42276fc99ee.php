@@ -141,10 +141,15 @@
                                 </td>
                             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                     </tbody>
+                    <tfoot>
+                        <?php echo ($page); ?>
+                    </tfoot>
                 </table>
             </div>
         </div>
+
     </div>
+
 </body>
 
 </html>
