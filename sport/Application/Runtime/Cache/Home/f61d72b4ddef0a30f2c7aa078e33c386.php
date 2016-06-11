@@ -4,9 +4,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" conatent="width=device-width, initial-scale=1" />
 	<title>注册</title>
-	<link rel="stylesheet" href="/sportsweb/sport/Public/css/bootstrap.min.css" />
-	<script src="/sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
-	<script src="/sportsweb/sport/Public/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/sport/Public/css/bootstrap.min.css" />
+	<script src="/sport/Public/js/jquery-1.11.3.min.js"></script>
+	<script src="/sport/Public/js/bootstrap.min.js"></script>
 	<style>
 		body {
 		  padding-top: 40px;
@@ -71,13 +71,13 @@
 				<div class="navbar-collapse collapse" id="navbar">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="/sportsweb/sport/index.php/Home">主页</a>
+							<a href="/sport/index.php/Home">主页</a>
 						</li>
 						<li>
-							<a href="/sportsweb/sport/index.php/Home/Rank/rank">排行</a>
+							<a href="/sport/index.php/Home/Rank/rank">排行</a>
 						</li>
 						<li>
-							<a href="/sportsweb/sport/index.php/Home/Activity/activity">活动</a>
+							<a href="/sport/index.php/Home/Activity/activity">活动</a>
 						</li>
 					</ul>
 					<div class="navbar-form navbar-left" role="search">
@@ -88,10 +88,10 @@
 					</div>
 					<ul class="nav navbar-nav navbar-right"">
 						<li href="#">
-							<a href="/sportsweb/sport/index.php/Home/Login/login">登陆</a>
+							<a href="/sport/index.php/Home/Login/login">登陆</a>
 						</li>
 						<li href="#" class="active">
-							<a href="/sportsweb/sport/index.php/Home/Register/register">注册</a>
+							<a href="/sport/index.php/Home/Register/register">注册</a>
 						</li>
 					</ul>
 				</div>
@@ -99,7 +99,7 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form action="/sportsweb/sport/index.php/Home/Register/do_register" onsubmit="return validate()" class="form-signin" method="post">
+		<form action="/sport/index.php/Home/Register/do_register" onsubmit="return validate()" class="form-signin" method="post">
 			<h2 class="form-signin-heading text-center">
 				注册
 			</h2>
@@ -129,7 +129,7 @@
 			</div>
 			<label for="reverify">验证：</label>
 			<input type="text" class="form-control" id="reverify" placeholder='verify' name="reverify" required="true">
-			<img onclick="this.src=this.src+'?'+Math.random()" src="/sportsweb/sport/index.php/Home/Register/verify">
+			<img onclick="this.src=this.src+'?'+Math.random()" src="/sport/index.php/Home/Register/verify">
 			<!-- <div class="checkbox">
 				<label>
 					<input type="checkbox" value="remember-me"> Remember me
@@ -168,7 +168,7 @@
     $(document).ready(function () {
         (function () {
             $.ajax({
-                url: '/sportsweb/sport/index.php/Home/Register/ajaxAcademy',
+                url: '/sport/index.php/Home/Register/ajaxAcademy',
                 type: 'post',
                 dataType: 'json',
                 success: function (data) {
@@ -180,7 +180,7 @@
         })();
         $('#inputStuNum').blur(function () {
            $.ajax({
-               url: '/sportsweb/sport/index.php/Home/Register/ajaxNum',
+               url: '/sport/index.php/Home/Register/ajaxNum',
                type: 'post',
                data: {'StuNum': $('#inputStuNum').val()},
                success: function (data) {
