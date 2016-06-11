@@ -202,7 +202,7 @@ $("#redraw ").click(function() {
             type: 'post',
             success: function(data) {
                 if (data != 'please login') {
-                    $('.navbar-right li a').eq(0).text(data).attr('href', 'https://www.baidu.com');
+                    $('.navbar-right li a').eq(0).text(data).attr('href', '/sportsweb/sport/index.php/Home/Personal/personal');
                     $('.navbar-right li a').eq(1).text('注销').attr('href', '/sportsweb/sport/index.php/Home/Index/logout');
                 }
             }
