@@ -7,12 +7,11 @@ use Think\Model;
      public function activity()
      {
         $m=M();
+         $m->query('set names utf8');
          $arr=$m->query("select name from `sport_project`");
          $this->assign('arr',$arr);
-         $date['name']=session('name');
-         $date['id']=session('id');
-         $this->assign('session',$date);
-        $this->display();
+
+         $this->display();
      }
      public function join()
      {
