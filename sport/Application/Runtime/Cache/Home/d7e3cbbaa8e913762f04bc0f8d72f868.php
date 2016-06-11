@@ -84,13 +84,13 @@
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="/sport/index.php/Home">主页</a>
+                            <a href="/sportsweb/sport/index.php/Home">主页</a>
                         </li>
                         <li>
-                            <a href="/sport/index.php/Home/Rank/rank">排行</a>
+                            <a href="/sportsweb/sport/index.php/Home/Rank/rank">排行</a>
                         </li>
                         <li>
-                            <a href="/sport/index.php/Home/Activity/activity">活动</a>
+                            <a href="/sportsweb/sport/index.php/Home/Activity/activity">活动</a>
                         </li>
                     </ul>
                     <div class="navbar-form navbar-left" role="search">
@@ -101,10 +101,10 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right" ">
                         <li href="# " class="active ">
-                            <a href="/sport/index.php/Home/Login/login ">登陆</a>
+                            <a href="/sportsweb/sport/index.php/Home/Login/login ">登陆</a>
                         </li>
                         <li href="# ">
-                            <a href="/sport/index.php/Home/Register/register ">注册</a>
+                            <a href="/sportsweb/sport/index.php/Home/Register/register ">注册</a>
                         </li>
                     </ul>
                 </div>
@@ -112,7 +112,7 @@
         </nav>
     </div>
     <div class="container ">
-        <form action="/sport/index.php/Home/Activity/join " class="form-signin " onsubmit="return validate() " method="post">
+        <form action="/sportsweb/sport/index.php/Home/Activity/join " class="form-signin " onsubmit="return validate() " method="post">
             <h2 class="form-signin-heading text-center ">
                 报名
             </h2>
@@ -146,12 +146,12 @@
 <script>
     (function (argument) {
          $.ajax({
-            url: '/sport/index.php/Home/Index/checkSession',
+            url: '/sportsweb/sport/index.php/Home/Index/checkSession',
             type: 'post',
             success: function(data) {
                 if (data != 'please login') {
-                    $('.navbar-right li a').eq(0).text(data).attr('href', '/sport/index.php/Home/Personal/personal');
-                    $('.navbar-right li a').eq(1).text('注销').attr('href', '/sport/index.php/Home/Index/logout');
+                    $('.navbar-right li a').eq(0).text(data).attr('href', 'https://www.baidu.com');
+                    $('.navbar-right li a').eq(1).text('注销').attr('href', '/sportsweb/sport/index.php/Home/Index/logout');
                 }
             }
         }); 
