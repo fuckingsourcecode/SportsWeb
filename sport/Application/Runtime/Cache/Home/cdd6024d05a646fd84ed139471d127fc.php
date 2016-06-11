@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" conatent="width=device-width, initial-scale=1" />
     <title>排行</title>
-    <load rel="stylesheet" href="__ROOT__/Public/css/bootstrap.min.css" />
-    <script src="__ROOT__/Public/js/jquery-1.11.3.min.js"></script>
-    <script src="__ROOT__/Public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sportsweb/sport/Public/css/bootstrap.min.css" />
+    <script src="/sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
+    <script src="/sportsweb/sport/Public/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.css" />
@@ -39,13 +39,13 @@
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="__MODULE__">主页</a>
+                            <a href="/sportsweb/sport/index.php/Home">主页</a>
                         </li>
                         <li>
-                            <a href="__MODULE__/Rank/rank">排行</a>
+                            <a href="/sportsweb/sport/index.php/Home/Rank/rank">排行</a>
                         </li>
                         <li>
-                            <a href="__MODULE__/Activity/activity">活动</a>
+                            <a href="/sportsweb/sport/index.php/Home/Activity/activity">活动</a>
                         </li>
                     </ul>
                     <div class="navbar-form navbar-left" role="search">
@@ -56,10 +56,10 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right" ">
 						<li href="# " class="active ">
-							<a href="__MODULE__/Login/login ">登陆</a>
+							<a href="/sportsweb/sport/index.php/Home/Login/login ">登陆</a>
 						</li>
 						<li href="# ">
-							<a href="__MODULE__/Register/register ">注册</a>
+							<a href="/sportsweb/sport/index.php/Home/Register/register ">注册</a>
 						</li>
 					</ul>
 				</div>
@@ -89,7 +89,7 @@
 var t = $('#example').DataTable({
     ajax: {
         //指定数据源
-        url: "__ROOT__/Public/test.txt"
+        url: "/sportsweb/sport/Public/test.txt"
     },
     //每页显示三条数据
     pageLength: 3,
@@ -132,19 +132,19 @@ t.on('order.dt search.dt',function() {
 
 //更换数据源（相同格式，但是数据内容不同）
 $("#redraw").click(function() {
-    var url = table.api().ajax.url("__ROOT__/Public/test.txt");
+    var url = table.api().ajax.url("/sportsweb/sport/Public/test.txt");
     url.load();
 });
 </script>
 <script>
 (function (argument) {
          $.ajax({
-            url: '__MODULE__/Index/checkSession',
+            url: '/sportsweb/sport/index.php/Home/Index/checkSession',
             type: 'post',
             success: function(data) {
                 if (data != 'please login') {
                     $('.navbar-right li a').eq(0).text(data).attr('href', 'https://www.baidu.com');
-                    $('.navbar-right li a').eq(1).text('注销').attr('href', '__MODULE__/Index/logout');
+                    $('.navbar-right li a').eq(1).text('注销').attr('href', '/sportsweb/sport/index.php/Home/Index/logout');
                 }
             }
         }); 

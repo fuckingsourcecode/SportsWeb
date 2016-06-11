@@ -5,6 +5,6 @@ use Think\Model;
  class RankController extends  Controller{
      public function rank()
      {
-         echo 'rank';
+         $this->display();
      }
  }
