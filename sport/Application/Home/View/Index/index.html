@@ -110,9 +110,9 @@
             <div class="row col-sm-6 text-center">
                 <div id="accordion">
                     <volist name='arr' id='vo'>
-                        <h3><{$vo.title}></h3>
+                        <h3>[{$vo.title}]</h3>
                         <p>
-                            <{$vo.contents}>
+                            [{$vo.contents}]
                         </p>
                     </volist>
                 </div>
@@ -134,13 +134,13 @@
                         <volist name='array' id='vo1'>
                             <tr>
                                 <td>
-                                    <{$vo1.hosttime}>
+                                    [{$vo1.hosttime}]
                                 </td>
                                 <td class="text-center">
-                                    <{$vo1.name}>
+                                    [{$vo1.name}]
                                 </td>
                                 <td>
-                                    <{$vo1.where}>
+                                    [{$vo1.where}]
                                 </td>
                             </tr>
                         </volist>
