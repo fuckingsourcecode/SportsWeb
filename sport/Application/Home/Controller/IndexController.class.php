@@ -8,8 +8,25 @@ class IndexController extends Controller {
     {
          $m=new Model();
         /*运动快报*/
-        $arr=$m->query('select * from `sport_news`');
-        $this->assign('arr',$arr);
+       /* $arr=$m->query('select * from `sport_news`');
+        $this->assign('arr',$arr);*/
+        $User = M('news'); // 实例化User对象
+        $count=$User->count();
+        $pagecount=4;
+        $page1 = new \Think\Page($count , $pagecount);
+        $page1->setConfig('first','首页');
+        $page1->setConfig('prev','上一页');
+        $page1->setConfig('next','下一页');
+        $page1->setConfig('last','尾页');
+        $page1->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% 第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页 ( '.$pagecount.' 条/页 共 %TOTAL_ROW% 条)');
+        $show1 = $page1->show();
+        $array = $User->limit($page1->firstRow.','.$page1->listRows)->select();
+        $this->assign('news',$array);
+        $this->assign('page1',$show1);
+
+
+
+
         /*预告消息*/
         //$array=$m->query('select * from `sport_project` ORDER BY `hosttime` asc limit 0,4' );
         //$this->assign('array',$array);
