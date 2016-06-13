@@ -33,7 +33,7 @@ class IndexController extends Controller {
         $User = M('project'); // 实例化User对象
         $count=$User->count();
         $pagecount=4;
-        $page = new \Think\Page($count , $pagecount);
+        $page = new \Think\nPage($count , $pagecount);
         $page->setConfig('first','首页');
         $page->setConfig('prev','上一页');
         $page->setConfig('next','下一页');

@@ -109,11 +109,16 @@
         <div class="container">
             <div class="row col-sm-6 text-center">
                 <div id="accordion">
-                    <volist name='arr' id='vo'>
+                    <volist name='news' id='vo'>
                         <h3>[{$vo.title}]</h3>
                         <p>
                             [{$vo.contents}]
                         </p>
+                    </volist>
+                </div>
+                <div>
+                    <volist>
+                        [{$page1}]
                     </volist>
                 </div>
             </div>
