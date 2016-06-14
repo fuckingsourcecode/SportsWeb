@@ -7,13 +7,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" conatent="width=device-width, initial-scale=1" />
     <title>登陆</title>
-    <link rel="stylesheet" href="/sportsweb/sport/Public/css/bootstrap.min.css" />
-    <script src="/sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
-    <script src="/sportsweb/sport/Public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/SportsWeb/sport/Public/css/bootstrap.min.css" />
+    <script src="/SportsWeb/sport/Public/js/jquery-1.11.3.min.js"></script>
+    <script src="/SportsWeb/sport/Public/js/bootstrap.min.js"></script>
     <style>
-        body {
-            padding: 60px;
-        }
+    body {
+        padding: 60px;
+    }
     </style>
 </head>
 
@@ -33,13 +33,13 @@
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="/sportsweb/sport/index.php/Home">主页</a>
+                            <a href="/SportsWeb/sport/index.php/Home">主页</a>
                         </li>
                         <li>
-                            <a href="/sportsweb/sport/index.php/Home/Rank/rank">排行</a>
+                            <a href="/SportsWeb/sport/index.php/Home/Rank/rank">排行</a>
                         </li>
                         <li>
-                            <a href="/sportsweb/sport/index.php/Home/Activity/activity">活动</a>
+                            <a href="/SportsWeb/sport/index.php/Home/Activity/activity">活动</a>
                         </li>
                     </ul>
                     <div class="navbar-form navbar-left" role="search">
@@ -50,10 +50,10 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right" ">
                         <li href="# " class="active ">
-                            <a href="/sportsweb/sport/index.php/Home/Login/login ">登陆</a>
+                            <a href="/SportsWeb/sport/index.php/Home/Login/login ">登陆</a>
                         </li>
                         <li href="# ">
-                            <a href="/sportsweb/sport/index.php/Home/Register/register ">注册</a>
+                            <a href="/SportsWeb/sport/index.php/Home/Register/register ">注册</a>
                         </li>
                     </ul>
                 </div>
@@ -93,7 +93,12 @@
             <th class="text-center ">名次</th>
         </thead>
         <tbody>
-            
+            <?php if(is_array($already )): $i = 0; $__LIST__ = $already ;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$al ): $mod = ($i % 2 );++$i;?><tr class="text-center ">
+                    <td><?php echo ($al["name"]); ?> </td>
+                    <td><?php echo ($al["hosttime"]); ?></td>
+                    <td><?php echo ($al["rank"]); ?></td> 
+                    <td> <?php echo ($al["score"]); ?></td>
+                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
     <table class="table table-striped table-bordered ">
@@ -103,24 +108,24 @@
             <th class="text-center ">时间</th>
         </thead>
         <tbody>
-            
+            <?php if(is_array($undo )): $i = 0; $__LIST__ = $undo ;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$al1 ): $mod = ($i % 2 );++$i;?><tr class="text-center ">
+                    <td><?php echo ($al1["name"]); ?> </td>
+                    <td><?php echo ($al1["hosttime"]); ?></td>     
+                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
-    <?php if(is_array($project )): $i = 0; $__LIST__ = $project ;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ss ): $mod = ($i % 2 );++$i; echo ($ss["project"]); endforeach; endif; else: echo "" ;endif; ?>
     </div>
 </body>
 </html>
 <script>
     $(document).ready(function (argument) {
           $.ajax({
-            url: '/sportsweb/sport/index.php/Home/Personal/checkSession',
+            url: '/SportsWeb/sport/index.php/Home/Personal/checkSession',
             type: 'post',
             success: function(data) {
                 if (data != 'please login') {
-                    $('.navbar-right li a').eq(0).text(data).attr('href', '/sportsweb/sport/index.php/Home/Personal/personal');
-                    $('.navbar-right li a').eq(1).text('注销').attr('href', '/sportsweb/sport/index.php/Home/Personal/logout');
-                } else {
-                    window.location.href = '/sportsweb/sport/index.php/Home/Personal/login'
+                    $('.navbar-right li a').eq(0).text(data).attr('href', '/SportsWeb/sport/index.php/Home/Personal/personal');
+                    $('.navbar-right li a').eq(1).text('注销').attr('href', '/SportsWeb/sport/index.php/Home/Personal/logout');
                 }
             }
         });

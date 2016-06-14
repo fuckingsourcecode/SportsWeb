@@ -5,6 +5,8 @@ class IndexController extends Controller {
     
     public function index()
     {
-      $this->display();
+        $content = $this->fetch('Header:header');
+        $this->show($content);
+         $this->display();
     }
 }

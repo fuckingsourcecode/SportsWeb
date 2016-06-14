@@ -4,9 +4,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" conatent="width=device-width, initial-scale=1" />
 	<title>登陆</title>
-	<link rel="stylesheet" href="/sportsweb/sport/Public/css/bootstrap.min.css" />
-	<script src="/sportsweb/sport/Public/js/jquery-1.11.3.min.js"></script>
-	<script src="/sportsweb/sport/Public/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/SportsWeb/sport/Public/css/bootstrap.min.css" />
+	<script src="/SportsWeb/sport/Public/js/jquery-1.11.3.min.js"></script>
+	<script src="/SportsWeb/sport/Public/js/bootstrap.min.js"></script>
 	<style>
 		body {
 		  padding-top: 40px;
@@ -71,13 +71,13 @@
 				<div class="navbar-collapse collapse" id="navbar">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="/sportsweb/sport/index.php/Home">主页</a>
+							<a href="/SportsWeb/sport/index.php/Home">主页</a>
 						</li>
 						<li>
-							<a href="/sportsweb/sport/index.php/Home/Rank/rank">排行</a>
+							<a href="/SportsWeb/sport/index.php/Home/Rank/rank">排行</a>
 						</li>
 						<li>
-							<a href="/sportsweb/sport/index.php/Home/Activity/activity">活动</a>
+							<a href="/SportsWeb/sport/index.php/Home/Activity/activity">活动</a>
 						</li>
 					</ul>
 					<div class="navbar-form navbar-left" role="search">
@@ -88,10 +88,10 @@
 					</div>
 					<ul class="nav navbar-nav navbar-right"">
 						<li href="#" class="active">
-							<a href="/sportsweb/sport/index.php/Home/Login/login">登陆</a>
+							<a href="/SportsWeb/sport/index.php/Home/Login/login">登陆</a>
 						</li>
 						<li href="#">
-							<a href="/sportsweb/sport/index.php/Home/Register/register">注册</a>
+							<a href="/SportsWeb/sport/index.php/Home/Register/register">注册</a>
 						</li>
 					</ul>
 				</div>
@@ -108,7 +108,7 @@
 			<label for="inputPassword">密码：</label>
 			<input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="password" required="true" />
 			<input type="text" class="form-control"  placeholder='verify' name="loverify" required="true">
-			<img onclick="this.src=this.src+'?'+Math.random()" src="/sportsweb/sport/index.php/Home/Login/verify">
+			<img onclick="this.src=this.src+'?'+Math.random()" src="/SportsWeb/sport/index.php/Home/Login/verify">
 			<div class="checkbox">
 				<label>
 					<input type="checkbox" id="remember" value="remember-me" name="checkbox"> Remember me

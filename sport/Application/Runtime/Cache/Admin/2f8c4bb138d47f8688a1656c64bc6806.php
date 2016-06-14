@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>运动会管理系统</title>
-    <link href="__ROOT__/Public/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="__ROOT__/Public/js/jquery-1.11.3.js"></script>
-    <script type="text/javascript" src="__ROOT__/Public/js/bootstrap.min.js"></script>
+    <link href="/SportsWeb/sport/Public/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/SportsWeb/sport/Public/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/SportsWeb/sport/Public/js/bootstrap.min.js"></script>
     <style>
         body {
             padding-top: 60px;
@@ -31,16 +31,19 @@
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="__MODULE__">主页</a>
+                        <a href="/SportsWeb/sport/index.php/Admin">主页</a>
                     </li>
                     <li>
-                        <a href="__MODULE__/Player/player">运动员管理</a>
+                        <a href="/SportsWeb/sport/index.php/Admin/Student/student">学生管理</a>
                     </li>
                     <li>
-                        <a href="__MODULE__/News/news">新闻管理</a>
+                        <a href="/SportsWeb/sport/index.php/Admin/Player/player">运动员管理</a>
                     </li>
                     <li>
-                        <a href="__MODULE__/Schedule/schedule">项目时刻表管理</a>
+                        <a href="/SportsWeb/sport/index.php/Admin/News/news">新闻管理</a>
+                    </li>
+                    <li>
+                        <a href="/SportsWeb/sport/index.php/Admin/Schedule/schedule">项目时刻表管理</a>
                     </li>
                 </ul>
                 <div class="navbar-form navbar-left" role="search">

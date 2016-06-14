@@ -1,4 +1,4 @@
-<script src="__ROOT__/Public/js/angular.min.js"></script>
+<?php if (!defined('THINK_PATH')) exit();?><script src="/SportsWeb/sport/Public/js/angular.min.js"></script>
 <style>
 body {
     padding: 60px;
@@ -57,7 +57,7 @@ app.service('player', ['$rootScope', '$http', function($rootScope, $http) {
     var service = {
         players: {},
         myUpdate: function() {
-            $http.get("__URL__/getPlayer").success(function(response) {
+            $http.get("/SportsWeb/sport/index.php/Admin/Player/getPlayer").success(function(response) {
                 players = JSON.parse(response.split(']')[0] + ']');
             });
             $rootScope.$broadcast('update');
@@ -66,11 +66,11 @@ app.service('player', ['$rootScope', '$http', function($rootScope, $http) {
     return service;
 }]);
 app.controller('ctrl', ['$scope', '$http', function($scope, $http) {
-    $http.get("__URL__/getPlayer").success(function(response) {
+    $http.get("/SportsWeb/sport/index.php/Admin/Player/getPlayer").success(function(response) {
         $scope.players = JSON.parse(response.split(']')[0] + ']');
     });
     $scope.$on('update', function() {
-        $http.get("__URL__/getPlayer").success(function(response) {
+        $http.get("/SportsWeb/sport/index.php/Admin/Player/getPlayer").success(function(response) {
             $scope.players = JSON.parse(response.split(']')[0] + ']');
         });
         $scope.$apply();
@@ -96,14 +96,25 @@ $(document).ready(function(argument) {
         }
         console.log(arr);
         $.ajax({
-            url: '__URL__/deletePlayer',
+            url: '/SportsWeb/sport/index.php/Admin/Player/deletePlayer',
             type: 'POST',
             data: 'date=' + arr,
             success: function(argument) {
                 $('#update').click();
 
             }
-        });
+        })
     });
+    // $('#revise').click(function(argument) {
+    //     var arr = [];
+    //     alert();
+    //     for (var i = 0; i < $('.myCheck').length; i++) {
+    //         if ($('.myCheck').eq(i).is(':checked')) {
+    //             arr.push($('.myCheck').eq(i).val());
+    //             break;
+    //         }
+    //     }
+    //     window.location.href = "http://www.baidu.com&" + arr;
+    // });
 });
 </script>

@@ -109,10 +109,15 @@
         <div class="container">
             <div class="row col-sm-6 text-center">
                 <div id="accordion">
-                    <?php if(is_array($arr)): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><h3><?php echo ($vo["title"]); ?></h3>
+                    <?php if(is_array($news)): $i = 0; $__LIST__ = $news;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><h3><?php echo ($vo["title"]); ?></h3>
                         <p>
                             <?php echo ($vo["contents"]); ?>
                         </p><?php endforeach; endif; else: echo "" ;endif; ?>
+                </div>
+                <div>
+                    <volist>
+                        <?php echo ($page1); ?>
+                    </volist>
                 </div>
             </div>
             <div class="row col-sm-6 text-center">
